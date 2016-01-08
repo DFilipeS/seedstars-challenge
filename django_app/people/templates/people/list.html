@@ -1,0 +1,30 @@
+{% extends 'people/layout.html' %}
+
+{% block content %}
+
+<h1>List people</h1>
+
+{% if people %}
+    <p class="pull-right">
+        <a href="{% url 'people:add' %}" class="btn btn-default">Add person</a>
+    </p>
+    
+    <table class="table table-bordered table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    {% for person in people %}
+        <tr>
+            <td>{{ person.id }}</td>
+            <td>{{ person.name }}</td>
+            <td>{{ person.email }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% else %}
+    <p>There are no people on record. Why not <a href="{% url 'people:add' %}">add</a> some now?</p>
+{% endif %}
+
+{% endblock %}

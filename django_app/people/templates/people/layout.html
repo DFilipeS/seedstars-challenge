@@ -1,0 +1,50 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Django Challenge - Seedstars{% endblock %}</title>
+    
+    <link rel="stylesheet" type="text/css" href="{% static 'people/bootstrap/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'people/bootstrap/css/bootstrap-theme.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'people/style.css' %}" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="{% url 'people:index' %}">Django Challenge</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="{% url 'people:index' %}">Home</a></li>
+                    <li><a href="{% url 'people:add' %}">Add person</a></li>
+                    <li><a href="{% url 'people:list' %}">List people</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+    
+    <footer>
+        Daniel Filipe Silva -
+        <a href="mailto:danfilipesilva@gmail.com">Email</a> |
+        <a href="https://pt.linkedin.com/in/dfilipes" target="_blank">LinkedIn</a> |
+        <a href="https://github.com/DFilipeS" target="_blank">GitHub</a> |
+        <a href="http://www.dfilipes.com" target="_blank">Website</a>
+    </footer>
+    
+    <script src="{% static 'people/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+{% extends 'people/layout.html' %}
+
+{% block content %}
+
+<h1>Django Challenge @ Seedstars</h1>
+
+<p>
+    Welcome to the Django Challenge web app proposed by Seedstars. This is a simple web app where you have
+    a list of names and emails stored in a SQLite database. You can add new entries or view existing ones.
+</p>
+
+<div class="panel panel-default">
+    <div class="panel-heading">Actions</div>
+
+    <div class="list-group">
+        <a href="{% url 'people:list' %}" class="list-group-item">List people</a>
+        <a href="{% url 'people:add' %}" class="list-group-item">Add person</a>
+    </div>
+</div>
+
+
+
+{% endblock %}
